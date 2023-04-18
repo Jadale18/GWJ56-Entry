@@ -1,0 +1,53 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5kysgfllcfww"]
+
+[ext_resource type="Script" path="res://Shop.gd" id="1_3osod"]
+
+[node name="Shop" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3osod")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Monster Parts: 0"
+
+[node name="WallParts" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_top = 32.0
+offset_right = 169.0
+offset_bottom = 58.0
+text = "Sturdy Monster Parts:"
+
+[node name="GridContainer" type="GridContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -139.0
+offset_bottom = 104.0
+grow_horizontal = 0
+
+[node name="NewCannon" type="Button" parent="GridContainer"]
+layout_mode = 2
+text = "Cannon: 15 Parts"
+
+[node name="NewWall" type="Button" parent="GridContainer"]
+visible = false
+layout_mode = 2
+text = "Wall: 15 Sturdy Parts"
+
+[node name="Continue" type="Button" parent="GridContainer"]
+layout_mode = 2
+text = "Continue"
+
+[connection signal="button_down" from="GridContainer/NewCannon" to="." method="_on_new_cannon_button_down"]
+[connection signal="button_down" from="GridContainer/NewWall" to="." method="_on_new_wall_button_down"]
+[connection signal="button_down" from="GridContainer/Continue" to="." method="_on_button_button_down"]

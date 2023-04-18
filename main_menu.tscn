@@ -1,0 +1,54 @@
+[gd_scene load_steps=3 format=3 uid="uid://7avlms37w8lg"]
+
+[ext_resource type="Script" path="res://main_menu.gd" id="1_njh1f"]
+[ext_resource type="Texture2D" uid="uid://lyc67py5f1ej" path="res://BG (3).png" id="2_pxddi"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_njh1f")
+metadata/_edit_horizontal_guides_ = [-88.0]
+
+[node name="Bg(3)" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(8, 8)
+texture = ExtResource("2_pxddi")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -88.0
+offset_top = -212.0
+offset_right = 93.0
+offset_bottom = -186.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Survive the MONSTERS!"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -112.0
+offset_top = -36.0
+offset_right = 110.0
+offset_bottom = 171.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Start"
+
+[connection signal="button_down" from="VBoxContainer/Button" to="." method="_on_button_button_down"]

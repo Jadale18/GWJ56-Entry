@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://b13l1j18e5p8e"]
+
+[ext_resource type="Script" path="res://wall.gd" id="1_j8co3"]
+[ext_resource type="Texture2D" uid="uid://cpcso3sujpdne" path="res://Wall.png" id="1_kimfj"]
+
+[node name="Wall" type="StaticBody2D"]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_j8co3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-5, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("1_kimfj")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.611765)
+texture_filter = 1
+position = Vector2(-5, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("1_kimfj")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(-136, -1, -1, -58, 132, -1, -1, 63)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.6
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,49 @@
+extends Node2D
+
+const bulletPath = preload('res://bullet.tscn')
+var shooting = false
+var ableToShoot = false
+var overlappingCannons = 0
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	if ableToShoot:
+		look_at(get_global_mouse_position())
+		check_input()
+	
+func check_input():
+	if Input.is_action_pressed("shoot") and not shooting:
+		shoot()
+		
+func shoot():
+	shooting = true
+	$Timer.start()
+	var bullet = bulletPath.instantiate()
+	get_parent().add_child(bullet)
+	bullet.position = $Marker2D.global_position
+	bullet.rotation = rotation_degrees
+	bullet.velocity = (get_global_mouse_position() - bullet.position).normalized()
+	
+
+
+func _on_timer_timeout():
+	shooting = false
+
+
+func _on_area_2d_area_entered(area):
+	if area.name == "CannonArea":
+		overlappingCannons += 1
+	elif area.name == 'EnemyArea':
+		queue_free()
+
+
+
+func _on_cannon_area_area_exited(area):
+	if area.name == "CannonArea":
+		overlappingCannons -= 1
+
