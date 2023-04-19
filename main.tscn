@@ -1,11 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://b12bmd8sop5od"]
+[gd_scene load_steps=9 format=3 uid="uid://b12bmd8sop5od"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_c3otq"]
 [ext_resource type="PackedScene" uid="uid://k7ql7daqq1kt" path="res://bunker.tscn" id="1_ngf4n"]
 [ext_resource type="PackedScene" uid="uid://doixoh75hajk2" path="res://cannon.tscn" id="1_x32ra"]
-[ext_resource type="Texture2D" uid="uid://lyc67py5f1ej" path="res://BG (3).png" id="2_1ijmq"]
+[ext_resource type="Texture2D" uid="uid://g2hcaluue7qd" path="res://BG (4).png" id="2_jm8ah"]
 [ext_resource type="PackedScene" uid="uid://cmjngy5pnyo0p" path="res://enemy_1.tscn" id="3_gi6mn"]
 [ext_resource type="PackedScene" uid="uid://b5kysgfllcfww" path="res://shop.tscn" id="6_486qw"]
+[ext_resource type="PackedScene" uid="uid://oj6y6s43nkgd" path="res://boss.tscn" id="7_vqh8y"]
 
 [sub_resource type="Curve2D" id="Curve2D_okigp"]
 _data = {
@@ -20,7 +21,7 @@ script = ExtResource("1_c3otq")
 texture_filter = 1
 position = Vector2(576, 324)
 scale = Vector2(8, 8)
-texture = ExtResource("2_1ijmq")
+texture = ExtResource("2_jm8ah")
 
 [node name="Bunker" parent="." instance=ExtResource("1_ngf4n")]
 position = Vector2(577, 338)
@@ -47,6 +48,9 @@ offset_bottom = 648.0
 
 [node name="Enemy1" parent="Shop" instance=ExtResource("3_gi6mn")]
 position = Vector2(84, 326)
+
+[node name="Boss" parent="." instance=ExtResource("7_vqh8y")]
+position = Vector2(728, 336)
 
 [connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="WaveTimer" to="." method="_on_wave_timer_timeout"]

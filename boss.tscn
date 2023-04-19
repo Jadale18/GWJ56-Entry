@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://oj6y6s43nkgd"]
+
+[ext_resource type="Texture2D" uid="uid://ddcpfmsm14mku" path="res://Boss.png" id="1_0otf7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_do46v"]
+atlas = ExtResource("1_0otf7")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ck3fy"]
+atlas = ExtResource("1_0otf7")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k5nhr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_do46v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ck3fy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Boss" type="CharacterBody2D"]
+scale = Vector2(2, 2)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_k5nhr")
+frame_progress = 0.905852
+speed_scale = 0.4
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-21, 27, 23, 26, 27, 19, 24, 12, 24, -6, 15, -21, 0, -25, -15, -18, -23, -2, -23, 25)

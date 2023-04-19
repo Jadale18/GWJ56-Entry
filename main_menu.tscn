@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://7avlms37w8lg"]
 
 [ext_resource type="Script" path="res://main_menu.gd" id="1_njh1f"]
-[ext_resource type="Texture2D" uid="uid://lyc67py5f1ej" path="res://BG (3).png" id="2_pxddi"]
+[ext_resource type="Texture2D" uid="uid://g2hcaluue7qd" path="res://BG (4).png" id="2_jdw0a"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -16,7 +16,7 @@ metadata/_edit_horizontal_guides_ = [-88.0]
 [node name="Bg(3)" type="Sprite2D" parent="."]
 position = Vector2(576, 324)
 scale = Vector2(8, 8)
-texture = ExtResource("2_pxddi")
+texture = ExtResource("2_jdw0a")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
