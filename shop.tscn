@@ -37,7 +37,7 @@ grow_horizontal = 0
 
 [node name="NewCannon" type="Button" parent="GridContainer"]
 layout_mode = 2
-text = "Cannon: 15 Parts"
+text = "Cannon: 10 Parts"
 
 [node name="NewWall" type="Button" parent="GridContainer"]
 visible = false

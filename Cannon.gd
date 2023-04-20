@@ -14,6 +14,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	check_death()
 	if ableToShoot:
 		look_at(get_global_mouse_position())
 		check_input()
@@ -21,6 +22,8 @@ func _process(delta):
 func check_input():
 	if Input.is_action_pressed("shoot") and not shooting:
 		shoot()
+
+func check_death():
 	if rounds_left == 0 and can_die == true:
 		queue_free()
 		

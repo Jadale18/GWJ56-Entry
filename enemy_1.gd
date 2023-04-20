@@ -3,7 +3,7 @@ extends CharacterBody2D
 var health = 5
 var velocity_dir = Vector2.RIGHT
 var speed = 100
-signal died(material)
+signal died(material, where)
 var type = 1
 
 func _ready():
@@ -25,7 +25,7 @@ func _physics_process(delta):
 func check_health():
 	$Label.text = var_to_str(health)
 	if health <= 0:
-		emit_signal('died', type)
+		emit_signal('died', type, position)
 		queue_free()
 	
 func check_stuck():

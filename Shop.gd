@@ -2,23 +2,14 @@ extends Control
 
 var parts = 0
 var wall_parts = 0
+var particlePath = preload('res://death_particles.tscn')
 signal cont
 signal cannonBought
 signal wallBought
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
-	
-	
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-
-func _on_enemy_1_died(type):
+func _on_enemy_1_died(type, pos):
 	if type == 1:
 		parts += 1
 		$Label.text = 'Monster Parts: ' + var_to_str(parts)
@@ -33,8 +24,29 @@ func _on_enemy_1_died(type):
 		parts += 20
 		$Label.text = 'Monster Parts: ' + var_to_str(parts)
 		$WallParts.text = 'Tough Monster Parts: ' + var_to_str(wall_parts)
-		
-		
+	spawn_death_particles(pos, type)
+
+func spawn_death_particles(pos, type):
+	var particles = particlePath.instantiate()
+	particles.position = pos
+	print(type)
+	if type == 1:
+		particles.process_material.color = 'white'
+		particles.process_material.scale_min = 0.1
+		particles.process_material.scale_max = 0.11
+	elif type == 2:
+		particles.process_material.color = 'red'
+		particles.process_material.scale_min = 0.2
+		particles.process_material.scale_max = 0.2
+	elif type == 3:
+		particles.process_material.color = 'green'
+		particles.scale = Vector2(3,3)
+		particles.process_material.scale_min = 0.5
+		particles.process_material.scale_max = 0.51
+	
+	add_child(particles)
+	
+	
 	
 
 func connect_enemy(name):
@@ -48,8 +60,8 @@ func _on_button_button_down():
 
 
 func _on_new_cannon_button_down():
-	if parts >= 15:
-		parts -= 15
+	if parts >= 10:
+		parts -= 10
 		$Label.text = 'Monster Parts: ' + var_to_str(parts)
 		emit_signal("cannonBought")
 

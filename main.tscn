@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://b12bmd8sop5od"]
+[gd_scene load_steps=9 format=3 uid="uid://b12bmd8sop5od"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_c3otq"]
 [ext_resource type="PackedScene" uid="uid://k7ql7daqq1kt" path="res://bunker.tscn" id="1_ngf4n"]
 [ext_resource type="PackedScene" uid="uid://doixoh75hajk2" path="res://cannon.tscn" id="1_x32ra"]
 [ext_resource type="Texture2D" uid="uid://g2hcaluue7qd" path="res://BG (4).png" id="2_jm8ah"]
 [ext_resource type="PackedScene" uid="uid://cmjngy5pnyo0p" path="res://enemy_1.tscn" id="3_gi6mn"]
+[ext_resource type="PackedScene" uid="uid://oj6y6s43nkgd" path="res://boss.tscn" id="5_m76ku"]
 [ext_resource type="PackedScene" uid="uid://b5kysgfllcfww" path="res://shop.tscn" id="6_486qw"]
 
 [sub_resource type="Curve2D" id="Curve2D_okigp"]
@@ -36,7 +37,7 @@ position = Vector2(1213, 680)
 rotation = -3.14082
 
 [node name="EnemySpawnTimer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 1.5
 
 [node name="WaveTimer" type="Timer" parent="."]
 wait_time = 15.0
@@ -48,9 +49,13 @@ offset_bottom = 648.0
 [node name="Enemy1" parent="Shop" instance=ExtResource("3_gi6mn")]
 position = Vector2(84, 326)
 
+[node name="Boss" parent="Shop" instance=ExtResource("5_m76ku")]
+position = Vector2(805, 357)
+
 [connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="WaveTimer" to="." method="_on_wave_timer_timeout"]
 [connection signal="cannonBought" from="Shop" to="." method="_on_shop_cannon_bought"]
 [connection signal="cont" from="Shop" to="." method="_on_shop_cont"]
 [connection signal="wallBought" from="Shop" to="." method="_on_shop_wall_bought"]
 [connection signal="died" from="Shop/Enemy1" to="Shop" method="_on_enemy_1_died"]
+[connection signal="died" from="Shop/Boss" to="Shop" method="_on_enemy_1_died"]

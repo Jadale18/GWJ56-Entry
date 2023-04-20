@@ -70,14 +70,14 @@ func check_living_enemies():
 		enemies_exist = false
 		for node in get_children():
 			if "Cannon" in node.name:
-				node.ableToShoot = false
 				node.rounds_left -= 1
+				node.ableToShoot = false
 				if node.rounds_left == 1 and node.can_die:
 					get_node(node.get_path()).get_child(6).start()
 			if "Wall" in node.name:
 				node.starting_lifespan -= 1
 				if node.starting_lifespan == 1:
-					get_node(node.get_path()).get_child(3).start()
+					get_node(node.get_path()).get_child(2).start()
 
 
 func _on_shop_cont():

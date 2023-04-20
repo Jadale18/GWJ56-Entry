@@ -29,7 +29,7 @@ texture = ExtResource("2_coq7m")
 position = Vector2(16, 0)
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.15
+wait_time = 0.08
 
 [node name="CannonArea" type="Area2D" parent="."]
 
