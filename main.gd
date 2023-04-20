@@ -3,6 +3,7 @@ extends Node2D
 var enemyPath = preload('res://enemy_1.tscn')
 var cannonPath = preload("res://cannon.tscn")
 var wallPath = preload('res://wall.tscn')
+var bossPath = preload('res://boss.tscn')
 var wavemode = false
 var buymode = false
 var enemies_exist = false
@@ -11,7 +12,7 @@ var placing_wall = false
 var newcannon = null
 var newwall = null
 var can_place = true
-var wave_counter = 1
+var wave_counter = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -85,6 +86,10 @@ func _on_shop_cont():
 	for node in get_children():
 		if "Cannon" in node.name:
 			node.ableToShoot = true
+	if wave_counter >= 10:
+		var bosses = floor(wave_counter/5) - 1
+		for boss in bosses:
+			spawn_boss()
 
 func _on_shop_cannon_bought():
 	newcannon = cannonPath.instantiate()
@@ -125,3 +130,13 @@ func placing_w():
 	if Input.is_action_just_pressed("shoot"):
 		placing_wall = false
 		$Shop/GridContainer.visible = true
+		
+func spawn_boss():
+	var boss = bossPath.instantiate()
+	$Shop.add_child(boss)
+	$Shop.connect_enemy(boss.get_path())
+	var spawn_location = get_node("EnemyPath/EnemySpawnLocations")
+	spawn_location.progress_ratio = randf()
+	boss.position = spawn_location.position
+	boss.velocity_dir = Vector2(576 - boss.position.x, 324 - boss.position.y).normalized()
+

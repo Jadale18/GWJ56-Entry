@@ -16,3 +16,8 @@ func _process(delta):
 func _on_timer_timeout():
 	$Sprite2D.visible = not $Sprite2D.visible
 	$Sprite2D2.visible = not $Sprite2D2.visible
+
+
+func _on_wall_area_area_entered(area):
+	if area.name == 'BossArea':
+		queue_free()

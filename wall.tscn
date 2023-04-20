@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://b13l1j18e5p8e"]
+[gd_scene load_steps=4 format=3 uid="uid://b13l1j18e5p8e"]
 
 [ext_resource type="Script" path="res://wall.gd" id="1_j8co3"]
 [ext_resource type="Texture2D" uid="uid://cpcso3sujpdne" path="res://Wall.png" id="1_kimfj"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pvmxx"]
+radius = 16.0
+height = 122.0
 
 [node name="Wall" type="StaticBody2D"]
 collision_layer = 3
@@ -22,11 +26,16 @@ position = Vector2(-5, 0)
 scale = Vector2(2, 2)
 texture = ExtResource("1_kimfj")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-visible = false
-polygon = PackedVector2Array(-136, -1, -1, -58, 132, -1, -1, 63)
-
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.6
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_pvmxx")
+
+[node name="WallArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="WallArea"]
+shape = SubResource("CapsuleShape2D_pvmxx")
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="WallArea" to="." method="_on_wall_area_area_entered"]

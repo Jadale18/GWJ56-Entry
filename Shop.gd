@@ -1,7 +1,7 @@
 extends Control
 
 var parts = 0
-var wall_parts = 1000
+var wall_parts = 0
 signal cont
 signal cannonBought
 signal wallBought
@@ -28,6 +28,11 @@ func _on_enemy_1_died(type):
 		if $WallParts.visible == false:
 			$WallParts.visible = true
 			$GridContainer/NewWall.visible = true
+	else:
+		wall_parts += 20
+		parts += 20
+		$Label.text = 'Monster Parts: ' + var_to_str(parts)
+		$WallParts.text = 'Tough Monster Parts: ' + var_to_str(wall_parts)
 		
 		
 	

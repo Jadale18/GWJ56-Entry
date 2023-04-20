@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://oj6y6s43nkgd"]
+[gd_scene load_steps=6 format=3 uid="uid://oj6y6s43nkgd"]
 
 [ext_resource type="Texture2D" uid="uid://ddcpfmsm14mku" path="res://Boss.png" id="1_0otf7"]
+[ext_resource type="Script" path="res://boss.gd" id="1_u8mai"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_do46v"]
 atlas = ExtResource("1_0otf7")
@@ -26,6 +27,9 @@ animations = [{
 
 [node name="Boss" type="CharacterBody2D"]
 scale = Vector2(2, 2)
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_u8mai")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -35,3 +39,18 @@ speed_scale = 0.4
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-21, 27, 23, 26, 27, 19, 24, 12, 24, -6, 15, -21, 0, -25, -15, -18, -23, -2, -23, 25)
+
+[node name="BossArea" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="BossArea"]
+polygon = PackedVector2Array(-21, 27, 23, 26, 27, 19, 24, 12, 24, -6, 15, -21, 0, -25, -15, -18, -23, -2, -23, 25)
+
+[node name="Label" type="Label" parent="."]
+offset_left = -20.0
+offset_top = -51.5
+offset_right = 20.0
+offset_bottom = -25.5
+text = "50"
+horizontal_alignment = 1
+
+[connection signal="area_entered" from="BossArea" to="." method="_on_boss_area_area_entered"]
