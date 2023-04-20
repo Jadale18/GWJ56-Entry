@@ -13,6 +13,12 @@ script = ExtResource("1_5k58b")
 texture_filter = 1
 texture = ExtResource("2_coq7m")
 
+[node name="Dying" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.423529)
+texture_filter = 1
+texture = ExtResource("2_coq7m")
+
 [node name="NoPlace" type="Sprite2D" parent="."]
 visible = false
 modulate = Color(0.552941, 0, 0, 1)
@@ -23,7 +29,7 @@ texture = ExtResource("2_coq7m")
 position = Vector2(16, 0)
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.07
+wait_time = 0.15
 
 [node name="CannonArea" type="Area2D" parent="."]
 
@@ -31,6 +37,10 @@ wait_time = 0.07
 shape = SubResource("CircleShape2D_j58au")
 debug_color = Color(0.658824, 0.380392, 0.882353, 0.419608)
 
+[node name="DyingTimer" type="Timer" parent="."]
+wait_time = 0.6
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="CannonArea" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="CannonArea" to="." method="_on_cannon_area_area_exited"]
+[connection signal="timeout" from="DyingTimer" to="." method="_on_dying_timer_timeout"]

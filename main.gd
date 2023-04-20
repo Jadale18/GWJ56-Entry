@@ -71,6 +71,9 @@ func check_living_enemies():
 		for node in get_children():
 			if "Cannon" in node.name:
 				node.ableToShoot = false
+				node.rounds_left -= 1
+				if node.rounds_left == 1 and node.can_die:
+					get_node(node.get_path()).get_child(6).start()
 			if "Wall" in node.name:
 				node.starting_lifespan -= 1
 				if node.starting_lifespan == 1:
@@ -111,6 +114,7 @@ func placing():
 		placing_cannon = false
 		$Shop/GridContainer.visible = true
 		can_place = false
+		newcannon.can_die = true
 
 
 func _on_shop_wall_bought():

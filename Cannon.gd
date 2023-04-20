@@ -4,6 +4,8 @@ const bulletPath = preload('res://bullet.tscn')
 var shooting = false
 var ableToShoot = false
 var overlappingCannons = 0
+var can_die = false
+var rounds_left = 5
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -19,6 +21,8 @@ func _process(delta):
 func check_input():
 	if Input.is_action_pressed("shoot") and not shooting:
 		shoot()
+	if rounds_left == 0 and can_die == true:
+		queue_free()
 		
 func shoot():
 	shooting = true
@@ -47,3 +51,8 @@ func _on_cannon_area_area_exited(area):
 	if area.name == "CannonArea":
 		overlappingCannons -= 1
 
+
+
+func _on_dying_timer_timeout():
+	$Sprite2D.visible = not $Sprite2D.visible
+	$Dying.visible = not $Dying.visible
