@@ -32,7 +32,7 @@ func check_health():
 	if health <= 0:
 		emit_signal('died', type, position)
 		queue_free()
-	if position.x > 1400 or position.x < 300 or position.y > 900 or position.y < -300:
+	if position.x > 1400 or position.x < -300 or position.y > 900 or position.y < -300:
 		queue_free()
 	
 func check_stuck():
