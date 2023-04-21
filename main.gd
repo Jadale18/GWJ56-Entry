@@ -106,10 +106,10 @@ func placing():
 	await get_tree().create_timer(0.2).timeout
 	if newcannon.overlappingCannons == 0:
 		can_place = true
-		get_node(newcannon.get_path()).get_child(1).visible = false
+		get_node(newcannon.get_path()).get_child(2).visible = false
 	else:
 		can_place = false
-		get_node(newcannon.get_path()).get_child(1).visible = true
+		get_node(newcannon.get_path()).get_child(2).visible = true
 	if Input.is_action_just_pressed("shoot") and can_place:
 		placing_cannon = false
 		$Shop/GridContainer.visible = true

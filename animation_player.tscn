@@ -1,0 +1,308 @@
+[gd_scene load_steps=13 format=3 uid="uid://b1l21hx86cm2j"]
+
+[ext_resource type="Texture2D" uid="uid://g2hcaluue7qd" path="res://BG (4).png" id="1_5snle"]
+[ext_resource type="Theme" uid="uid://c54kwsqechm6o" path="res://new_theme.tres" id="1_si8tl"]
+[ext_resource type="Script" path="res://animation_player.gd" id="1_uo5y2"]
+[ext_resource type="PackedScene" uid="uid://cmjngy5pnyo0p" path="res://enemy_1.tscn" id="2_2qkvn"]
+[ext_resource type="Texture2D" uid="uid://b6sk321d8il31" path="res://Enemy1.png" id="4_ho8qu"]
+
+[sub_resource type="Animation" id="Animation_3btsy"]
+resource_name = "Text1"
+length = 40.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Intro/Label:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3, 3.6, 7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(260, -400), Vector2(260, 353), Vector2(260, 353), Vector2(1300, 353)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Intro/AnimatedSprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(7.9, 8.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-114, 285), Vector2(1200, 285)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Intro/Label2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(8.6, 9.2, 9.9, 10.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(408, -103), Vector2(408, 348), Vector2(408, 348), Vector2(1200, 348)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Intro/Sprite2D:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(11.8, 15, 16.2, 18.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Intro/Label3:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(19.4, 20.6, 21.5, 22.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(88, -96), Vector2(88, 348), Vector2(88, 348), Vector2(1200, 348)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Intro/Label4:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(24.4, 26.2, 27, 29),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(344, -120), Vector2(344, 348), Vector2(344, 348), Vector2(1200, 348)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Intro/Label5:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(30.1, 30.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(16, -656), Vector2(16, 10)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Intro/Button:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(34.8),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Intro/Button2:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(15.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_8fspp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Intro/Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Intro/Label3:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(136, 288)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Intro/Button:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kt4f7"]
+_data = {
+"RESET": SubResource("Animation_8fspp"),
+"Text1": SubResource("Animation_3btsy")
+}
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_mstlv"]
+specular_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wbqnm"]
+atlas = ExtResource("4_ho8qu")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4mnvo"]
+atlas = ExtResource("4_ho8qu")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5p580"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wbqnm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4mnvo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Intro" type="AnimationPlayer"]
+libraries = {
+"": SubResource("AnimationLibrary_kt4f7")
+}
+script = ExtResource("1_uo5y2")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(8, 8)
+texture = ExtResource("1_5snle")
+
+[node name="Enemy1" parent="." instance=ExtResource("2_2qkvn")]
+position = Vector2(576, 312)
+velocity_dir = Vector2(2.08165e-12, 0)
+labels_visible = false
+
+[node name="Enemy2" parent="." instance=ExtResource("2_2qkvn")]
+position = Vector2(680, 480)
+velocity_dir = Vector2(2.08165e-12, 0)
+labels_visible = false
+
+[node name="Enemy3" parent="." instance=ExtResource("2_2qkvn")]
+position = Vector2(296, 272)
+velocity_dir = Vector2(2.08165e-12, 0)
+labels_visible = false
+
+[node name="Enemy4" parent="." instance=ExtResource("2_2qkvn")]
+position = Vector2(720, 176)
+velocity_dir = Vector2(2.08165e-12, 0)
+labels_visible = false
+
+[node name="Enemy5" parent="." instance=ExtResource("2_2qkvn")]
+position = Vector2(928, 288)
+velocity_dir = Vector2(2.08165e-12, 0)
+labels_visible = false
+
+[node name="Enemy6" parent="." instance=ExtResource("2_2qkvn")]
+position = Vector2(272, 528)
+velocity_dir = Vector2(2.08165e-12, 0)
+labels_visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(573, 341.5)
+scale = Vector2(1190, 709)
+texture = SubResource("CanvasTexture_mstlv")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 1300.0
+offset_top = 353.0
+offset_right = 1929.01
+offset_bottom = 412.0
+theme = ExtResource("1_si8tl")
+text = "You wake up and look outside..."
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1200, 285)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_5p580")
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 1200.0
+offset_top = 348.0
+offset_right = 1549.0
+offset_bottom = 407.0
+theme = ExtResource("1_si8tl")
+text = "What was that?!?"
+
+[node name="Label3" type="Label" parent="."]
+offset_left = 136.0
+offset_top = 288.0
+offset_right = 1058.0
+offset_bottom = 359.0
+theme = ExtResource("1_si8tl")
+text = "Ah geez I have nothing to defend myself with"
+
+[node name="Label4" type="Label" parent="."]
+offset_left = 1200.0
+offset_top = 348.0
+offset_right = 1601.0
+offset_bottom = 436.0
+theme = ExtResource("1_si8tl")
+text = "Oh wait, whats this?"
+
+[node name="Label5" type="Label" parent="."]
+offset_left = 16.0
+offset_top = 10.0
+offset_right = 1162.0
+offset_bottom = 659.0
+theme = ExtResource("1_si8tl")
+text = "Hey neighbor! If you're reading this then my experiment
+failed and the whole world has turned into monsters 
+(except you). They are going to come for you and you
+must be able to defend yourself. Luckily, I designed the
+monsters so that you can make tools and weapons 
+from their parts. I've already installed one on top of 
+your house, so use that to get started. Use the mouse 
+to aim and fire it. Good luck out there and don't get 
+consumed!
+Sincerely - the worst neighbor"
+
+[node name="Button" type="Button" parent="."]
+visible = false
+offset_left = 712.0
+offset_top = 552.0
+offset_right = 1116.0
+offset_bottom = 616.0
+theme = ExtResource("1_si8tl")
+text = "Begin Monster Fight"
+
+[node name="Button2" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+theme = ExtResource("1_si8tl")
+text = "Skip"
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
+[connection signal="button_down" from="Button2" to="." method="_on_button_2_button_down"]

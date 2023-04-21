@@ -1,7 +1,8 @@
 extends CharacterBody2D
 
 var health = 5
-var velocity_dir = Vector2.RIGHT
+@export var velocity_dir = Vector2.RIGHT
+@export var labels_visible = true
 var speed = 100
 signal died(material, where)
 var type = 1
@@ -15,6 +16,10 @@ func _ready():
 		$AnimatedSprite2D.animation = 'hardenemy'
 		health = 10
 	$AnimatedSprite2D.play()
+	if labels_visible:
+		$Label.visible = true
+	else:
+		$Label.visible = false
 	
 func _physics_process(delta):
 	velocity = velocity_dir * speed
@@ -26,6 +31,8 @@ func check_health():
 	$Label.text = var_to_str(health)
 	if health <= 0:
 		emit_signal('died', type, position)
+		queue_free()
+	if position.x > 1400 or position.x < 300 or position.y > 900 or position.y < -300:
 		queue_free()
 	
 func check_stuck():

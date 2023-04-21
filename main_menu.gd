@@ -12,4 +12,4 @@ func _process(delta):
 
 
 func _on_button_button_down():
-	get_tree().change_scene_to_file('res://main.tscn')
+	get_tree().change_scene_to_file('res://animation_player.tscn')

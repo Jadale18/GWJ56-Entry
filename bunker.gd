@@ -15,7 +15,7 @@ func _process(delta):
 func update_health():
 	$Label.text = var_to_str(health)
 	if health == 0:
-		get_tree().change_scene_to_file("res://main_menu.tscn")
+		get_tree().change_scene_to_file("res://game_over.tscn")
 
 
 func _on_area_entered(area):

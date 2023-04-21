@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var health = 50
+var health = 200
 var velocity_dir = Vector2.RIGHT
 var speed = 30
 signal died(material, pos)
@@ -14,6 +14,8 @@ func check_health():
 	$Label.text = var_to_str(health)
 	if health <= 0:
 		emit_signal('died', 3, position)
+		queue_free()
+	if position.x > 1400 or position.x < 300 or position.y > 900 or position.y < -300:
 		queue_free()
 
 func _on_boss_area_area_entered(area):

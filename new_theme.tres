@@ -1,0 +1,14 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://c54kwsqechm6o"]
+
+[ext_resource type="FontFile" uid="uid://dr0g8dqxemler" path="res://Gymphow.ttf" id="1_7x4e2"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_2jm72"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4r7sm"]
+texture = SubResource("CanvasTexture_2jm72")
+modulate_color = Color(1, 0.407843, 1, 1)
+
+[resource]
+default_font = ExtResource("1_7x4e2")
+default_font_size = 50
+/styles/New = SubResource("StyleBoxTexture_4r7sm")
