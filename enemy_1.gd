@@ -14,7 +14,7 @@ func _ready():
 		health = 5
 	else:
 		$AnimatedSprite2D.animation = 'hardenemy'
-		health = 10
+		health = 20
 	$AnimatedSprite2D.play()
 	if labels_visible:
 		$Label.visible = true

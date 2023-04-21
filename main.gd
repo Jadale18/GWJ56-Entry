@@ -21,6 +21,7 @@ func _ready():
 	wavemode = true
 	$EnemySpawnTimer.start()
 	$WaveTimer.start()
+	$AnimationPlayer.play("Waves")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -36,7 +37,7 @@ func _on_timer_timeout():
 	var enemy = enemyPath.instantiate()
 	$Shop.add_child(enemy)
 	var typee = 1
-	if wave_counter > 6:
+	if wave_counter > 3:
 		typee = randi_range(1,2)
 	get_node(enemy.get_path()).type = typee
 	$Shop.connect_enemy(enemy.get_path())
@@ -86,6 +87,8 @@ func _on_shop_cont():
 	wavemode = true
 	$EnemySpawnTimer.start()
 	$WaveTimer.start()
+	$AnimationPlayer/Label.text = 'Wave ' + var_to_str(wave_counter + 1)
+	$AnimationPlayer.play("Waves")
 	for node in get_children():
 		if "Cannon" in node.name:
 			node.ableToShoot = true

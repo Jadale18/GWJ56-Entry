@@ -6,6 +6,45 @@
 [ext_resource type="PackedScene" uid="uid://cmjngy5pnyo0p" path="res://enemy_1.tscn" id="2_2qkvn"]
 [ext_resource type="Texture2D" uid="uid://b6sk321d8il31" path="res://Enemy1.png" id="4_ho8qu"]
 
+[sub_resource type="Animation" id="Animation_8fspp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Intro/Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Intro/Label3:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(136, 288)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Intro/Button:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
 [sub_resource type="Animation" id="Animation_3btsy"]
 resource_name = "Text1"
 length = 40.0
@@ -113,45 +152,6 @@ tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
 "times": PackedFloat32Array(15.2),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
-[sub_resource type="Animation" id="Animation_8fspp"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Intro/Sprite2D:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Intro/Label3:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(136, 288)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Intro/Button:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
@@ -283,10 +283,10 @@ failed and the whole world has turned into monsters
 (except you). They are going to come for you and you
 must be able to defend yourself. Luckily, I designed the
 monsters so that you can make tools and weapons 
-from their parts. I've already installed one on top of 
-your house, so use that to get started. Use the mouse 
-to aim and fire it. Good luck out there and don't get 
-consumed!
+from their parts, but they'll break after some time. 
+I've already installed one on top of your house, so 
+use that to get started. Use the mouse to aim and fire 
+it. Good luck out there and don't get consumed!
 Sincerely - the worst neighbor"
 
 [node name="Button" type="Button" parent="."]
