@@ -37,7 +37,6 @@ func check_health():
 	
 func check_stuck():
 	if get_real_velocity() == Vector2.ZERO or get_real_velocity().length() < 0.1:
-		print('stuck')
 		if abs(velocity_dir.x) > abs(velocity_dir.y):
 			position.y += 2
 		else:

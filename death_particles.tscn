@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bkndxismsc4x1"]
+[gd_scene load_steps=7 format=3 uid="uid://bkndxismsc4x1"]
 
 [ext_resource type="Texture2D" uid="uid://neqms0ho6ntj" path="res://Bullet.png" id="1_w8j0j"]
 [ext_resource type="Script" path="res://GPUParticles2D.gd" id="2_5i8av"]
+[ext_resource type="AudioStream" uid="uid://dsixi8ixqtwjv" path="res://pop1.ogg" id="3_db78y"]
 
 [sub_resource type="Gradient" id="Gradient_wglx1"]
 offsets = PackedFloat32Array(0, 0.554475, 1)
@@ -40,5 +41,9 @@ script = ExtResource("2_5i8av")
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
 autostart = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_db78y")
+autoplay = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

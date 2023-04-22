@@ -29,7 +29,6 @@ func _on_enemy_1_died(type, pos):
 func spawn_death_particles(pos, type):
 	var particles = particlePath.instantiate()
 	particles.position = pos
-	print(type)
 	if type == 1:
 		particles.process_material.color = 'white'
 		particles.process_material.scale_min = 0.1

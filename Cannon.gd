@@ -6,6 +6,7 @@ var ableToShoot = false
 var overlappingCannons = 0
 var can_die = false
 var rounds_left = 5
+var og = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -30,6 +31,8 @@ func check_death():
 func shoot():
 	shooting = true
 	$Timer.start()
+	if og:
+		$AudioStreamPlayer2D.play()
 	var bullet = bulletPath.instantiate()
 	get_parent().add_child(bullet)
 	bullet.position = $Marker2D.global_position

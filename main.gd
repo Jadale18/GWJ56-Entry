@@ -22,6 +22,7 @@ func _ready():
 	$EnemySpawnTimer.start()
 	$WaveTimer.start()
 	$AnimationPlayer.play("Waves")
+	$AudioStreamPlayer.volume_db = -3
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -53,7 +54,6 @@ func _on_timer_timeout():
 
 
 func _on_wave_timer_timeout():
-	print('Wave ' + var_to_str(wave_counter) + ' Complete')
 	wave_counter += 1
 	$EnemySpawnTimer.stop()
 	$EnemySpawnTimer.wait_time *= 0.9
@@ -82,7 +82,6 @@ func check_living_enemies():
 
 
 func _on_shop_cont():
-	print('New Wave')
 	buymode = false
 	wavemode = true
 	$EnemySpawnTimer.start()
@@ -101,6 +100,7 @@ func _on_shop_cannon_bought():
 	newcannon = cannonPath.instantiate()
 	add_child(newcannon)
 	newcannon.position = get_global_mouse_position()
+	newcannon.og = false
 	placing_cannon = true
 
 func placing():
@@ -147,3 +147,7 @@ func spawn_boss():
 	boss.position = spawn_location.position
 	boss.velocity_dir = Vector2(576 - boss.position.x, 324 - boss.position.y).normalized()
 
+
+
+func _on_audio_stream_player_finished():
+	$AudioStreamPlayer.play(2.0)
