@@ -6,6 +6,8 @@ var particlePath = preload('res://death_particles.tscn')
 signal cont
 signal cannonBought
 signal wallBought
+var cannon_price = 10
+var wall_price = 15
 
 
 
@@ -59,14 +61,18 @@ func _on_button_button_down():
 
 
 func _on_new_cannon_button_down():
-	if parts >= 10:
-		parts -= 10
+	if parts >= cannon_price:
+		parts -= cannon_price
+		cannon_price += 1
 		$Label.text = 'Monster Parts: ' + var_to_str(parts)
+		$GridContainer/NewCannon.text = 'Cannon: ' + var_to_str(cannon_price) + ' Parts'
 		emit_signal("cannonBought")
 
 
 func _on_new_wall_button_down():
-	if wall_parts >= 15:
-		wall_parts -= 15
+	if wall_parts >= wall_price:
+		wall_parts -= wall_price
+		wall_price += 1
 		$WallParts.text = 'Tough Monster Parts: ' + var_to_str(wall_parts)
+		$GridContainer/NewWall.text = 'Wall: ' + var_to_str(wall_price) + 'Tough Parts'
 		emit_signal('wallBought')

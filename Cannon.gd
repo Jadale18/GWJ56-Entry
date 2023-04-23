@@ -5,7 +5,7 @@ var shooting = false
 var ableToShoot = false
 var overlappingCannons = 0
 var can_die = false
-var rounds_left = 5
+var rounds_left = 4
 var og = true
 
 # Called when the node enters the scene tree for the first time.

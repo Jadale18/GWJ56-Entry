@@ -49,7 +49,7 @@ text = "Cannon: 10 Parts"
 visible = false
 layout_mode = 2
 theme = ExtResource("2_gepj0")
-text = "Wall: 15 Sturdy Parts"
+text = "Wall: 15 Tough Parts"
 
 [node name="Continue" type="Button" parent="GridContainer"]
 layout_mode = 2

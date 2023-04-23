@@ -19,5 +19,5 @@ func update_health():
 
 
 func _on_area_entered(area):
-	if area.name == 'EnemyArea':
+	if area.name == 'EnemyArea' or area.name == 'BossArea':
 		health -= 1

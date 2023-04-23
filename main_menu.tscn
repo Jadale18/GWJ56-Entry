@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://7avlms37w8lg"]
+[gd_scene load_steps=5 format=3 uid="uid://7avlms37w8lg"]
 
 [ext_resource type="Script" path="res://main_menu.gd" id="1_njh1f"]
 [ext_resource type="Texture2D" uid="uid://g2hcaluue7qd" path="res://BG (4).png" id="2_jdw0a"]
 [ext_resource type="Theme" uid="uid://c54kwsqechm6o" path="res://new_theme.tres" id="3_b42b2"]
+[ext_resource type="AudioStream" uid="uid://c56n2nin5fngq" path="res://Wicked-Dreams.mp3" id="4_diidu"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -53,5 +54,9 @@ grow_vertical = 2
 layout_mode = 2
 theme = ExtResource("3_b42b2")
 text = "Start"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_diidu")
+autoplay = true
 
 [connection signal="button_down" from="VBoxContainer/Button" to="." method="_on_button_button_down"]

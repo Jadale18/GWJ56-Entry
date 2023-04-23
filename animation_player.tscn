@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://b1l21hx86cm2j"]
+[gd_scene load_steps=14 format=3 uid="uid://b1l21hx86cm2j"]
 
 [ext_resource type="Texture2D" uid="uid://g2hcaluue7qd" path="res://BG (4).png" id="1_5snle"]
 [ext_resource type="Theme" uid="uid://c54kwsqechm6o" path="res://new_theme.tres" id="1_si8tl"]
 [ext_resource type="Script" path="res://animation_player.gd" id="1_uo5y2"]
 [ext_resource type="PackedScene" uid="uid://cmjngy5pnyo0p" path="res://enemy_1.tscn" id="2_2qkvn"]
 [ext_resource type="Texture2D" uid="uid://b6sk321d8il31" path="res://Enemy1.png" id="4_ho8qu"]
+[ext_resource type="AudioStream" uid="uid://cp7r1yksh1xv1" path="res://Horror-Game-Intro.mp3" id="6_mrshh"]
 
 [sub_resource type="Animation" id="Animation_8fspp"]
 length = 0.001
@@ -303,6 +304,10 @@ offset_right = 8.0
 offset_bottom = 8.0
 theme = ExtResource("1_si8tl")
 text = "Skip"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_mrshh")
+autoplay = true
 
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
 [connection signal="button_down" from="Button2" to="." method="_on_button_2_button_down"]

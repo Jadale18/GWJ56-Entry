@@ -13,6 +13,7 @@ var newcannon = null
 var newwall = null
 var can_place = true
 var wave_counter = 0
+var tip = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -22,7 +23,7 @@ func _ready():
 	$EnemySpawnTimer.start()
 	$WaveTimer.start()
 	$AnimationPlayer.play("Waves")
-	$AudioStreamPlayer.volume_db = -3
+	$AudioStreamPlayer.volume_db = 0
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -69,6 +70,13 @@ func check_living_enemies():
 	if buymode:
 		$Shop/GridContainer.visible = true
 		enemies_exist = false
+		if wave_counter == 10:
+			$AnimationPlayer2/Tips.text = 'Watch out for big hoss! \nHe will eat your walls but give you lots of resources!'
+		if wave_counter == 11:
+			$AnimationPlayer2/Tips.text = 'You have now seen all of the content for this game. \nNow it just gets harder :)'
+		if wave_counter == 6 or wave_counter == 10 or wave_counter == 11:
+			$AnimationPlayer2.play("Tips")
+			tip = true
 		for node in get_children():
 			if "Cannon" in node.name:
 				node.rounds_left -= 1
@@ -95,12 +103,15 @@ func _on_shop_cont():
 		var bosses = floor(wave_counter/5) - 1
 		for boss in bosses:
 			spawn_boss()
+	if tip:
+		$AnimationPlayer2.play_backwards('Tips')
+		tip = false
 
 func _on_shop_cannon_bought():
 	newcannon = cannonPath.instantiate()
 	add_child(newcannon)
 	newcannon.position = get_global_mouse_position()
-	newcannon.og = false
+	newcannon.og = false	
 	placing_cannon = true
 
 func placing():
@@ -146,7 +157,7 @@ func spawn_boss():
 	spawn_location.progress_ratio = randf()
 	boss.position = spawn_location.position
 	boss.velocity_dir = Vector2(576 - boss.position.x, 324 - boss.position.y).normalized()
-
+	boss.speed = randf_range(30,60)
 
 
 func _on_audio_stream_player_finished():

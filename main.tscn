@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b12bmd8sop5od"]
+[gd_scene load_steps=14 format=3 uid="uid://b12bmd8sop5od"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_c3otq"]
 [ext_resource type="PackedScene" uid="uid://k7ql7daqq1kt" path="res://bunker.tscn" id="1_ngf4n"]
@@ -34,6 +34,26 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sgowr"]
 _data = {
 "Waves": SubResource("Animation_1yfmp")
+}
+
+[sub_resource type="Animation" id="Animation_paxmj"]
+resource_name = "Tips"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer2/Tips:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-30, 684), Vector2(-16, 507)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1fe10"]
+_data = {
+"Tips": SubResource("Animation_paxmj")
 }
 
 [node name="Main" type="Node2D"]
@@ -88,6 +108,21 @@ text = "Wave 1"
 stream = ExtResource("8_l2tlp")
 volume_db = -80.0
 autoplay = true
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_1fe10")
+}
+
+[node name="Tips" type="Label" parent="AnimationPlayer2"]
+offset_left = -22.0
+offset_top = 723.0
+offset_right = 1180.0
+offset_bottom = 841.0
+theme = ExtResource("7_qusyj")
+text = "Tip: Use W & D or arrowkeys to rotate 
+walls when placing!"
+horizontal_alignment = 1
 
 [connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="WaveTimer" to="." method="_on_wave_timer_timeout"]
