@@ -5,6 +5,7 @@ var health = 5
 @export var labels_visible = true
 var speed = 100
 signal died(material, where)
+signal hit
 var type = 1
 
 func _ready():
@@ -49,4 +50,5 @@ func _on_area_2d_area_entered(area):
 	if area.name == 'Bunker':
 		queue_free()
 	elif 'Bullet' in area.name:
+		emit_signal('hit')
 		health -= 1

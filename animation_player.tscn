@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://b1l21hx86cm2j"]
+[gd_scene load_steps=15 format=3 uid="uid://b1l21hx86cm2j"]
 
 [ext_resource type="Texture2D" uid="uid://g2hcaluue7qd" path="res://BG (4).png" id="1_5snle"]
 [ext_resource type="Theme" uid="uid://c54kwsqechm6o" path="res://new_theme.tres" id="1_si8tl"]
 [ext_resource type="Script" path="res://animation_player.gd" id="1_uo5y2"]
 [ext_resource type="PackedScene" uid="uid://cmjngy5pnyo0p" path="res://enemy_1.tscn" id="2_2qkvn"]
+[ext_resource type="PackedScene" uid="uid://k7ql7daqq1kt" path="res://bunker.tscn" id="3_ttvlm"]
 [ext_resource type="Texture2D" uid="uid://b6sk321d8il31" path="res://Enemy1.png" id="4_ho8qu"]
 [ext_resource type="AudioStream" uid="uid://cp7r1yksh1xv1" path="res://Horror-Game-Intro.mp3" id="6_mrshh"]
 
@@ -140,10 +141,10 @@ tracks/7/path = NodePath("Intro/Button:visible")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(34.8),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 34.8),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [true]
+"values": [false, true]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
@@ -152,10 +153,10 @@ tracks/8/path = NodePath("Intro/Button2:visible")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(15.2),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 15.2),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [false]
+"values": [true, false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kt4f7"]
@@ -200,8 +201,12 @@ position = Vector2(576, 324)
 scale = Vector2(8, 8)
 texture = ExtResource("1_5snle")
 
+[node name="Bunker" parent="." instance=ExtResource("3_ttvlm")]
+position = Vector2(592, 332)
+labvis = false
+
 [node name="Enemy1" parent="." instance=ExtResource("2_2qkvn")]
-position = Vector2(576, 312)
+position = Vector2(446, 206)
 velocity_dir = Vector2(2.08165e-12, 0)
 labels_visible = false
 
@@ -258,10 +263,10 @@ theme = ExtResource("1_si8tl")
 text = "What was that?!?"
 
 [node name="Label3" type="Label" parent="."]
-offset_left = 136.0
-offset_top = 288.0
-offset_right = 1058.0
-offset_bottom = 359.0
+offset_left = 1200.0
+offset_top = 348.0
+offset_right = 2122.0
+offset_bottom = 419.0
 theme = ExtResource("1_si8tl")
 text = "Ah geez I have nothing to defend myself with"
 
@@ -291,7 +296,6 @@ it. Good luck out there and don't get consumed!
 Sincerely - the worst neighbor"
 
 [node name="Button" type="Button" parent="."]
-visible = false
 offset_left = 712.0
 offset_top = 552.0
 offset_right = 1116.0
@@ -300,6 +304,7 @@ theme = ExtResource("1_si8tl")
 text = "Begin Monster Fight"
 
 [node name="Button2" type="Button" parent="."]
+visible = false
 offset_right = 8.0
 offset_bottom = 8.0
 theme = ExtResource("1_si8tl")

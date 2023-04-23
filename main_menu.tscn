@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://7avlms37w8lg"]
+[gd_scene load_steps=6 format=3 uid="uid://7avlms37w8lg"]
 
 [ext_resource type="Script" path="res://main_menu.gd" id="1_njh1f"]
 [ext_resource type="Texture2D" uid="uid://g2hcaluue7qd" path="res://BG (4).png" id="2_jdw0a"]
 [ext_resource type="Theme" uid="uid://c54kwsqechm6o" path="res://new_theme.tres" id="3_b42b2"]
 [ext_resource type="AudioStream" uid="uid://c56n2nin5fngq" path="res://Wicked-Dreams.mp3" id="4_diidu"]
+[ext_resource type="Texture2D" uid="uid://c15ylcqt51jva" path="res://Wildling_head_only.svg" id="5_o87ll"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -58,5 +59,10 @@ text = "Start"
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_diidu")
 autoplay = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1024, 128)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_o87ll")
 
 [connection signal="button_down" from="VBoxContainer/Button" to="." method="_on_button_button_down"]

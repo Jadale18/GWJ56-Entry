@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://doixoh75hajk2"]
 
 [ext_resource type="Script" path="res://Cannon.gd" id="1_5k58b"]
-[ext_resource type="Texture2D" uid="uid://dm301shqk4u6j" path="res://Cannon.png" id="2_coq7m"]
+[ext_resource type="Texture2D" uid="uid://dsr4jgj1heddq" path="res://Cannon (1).png" id="2_c6wk1"]
 [ext_resource type="AudioStream" uid="uid://f7d53mn275vd" path="res://alienshoot1.wav" id="3_34bul"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_j58au"]
@@ -12,19 +12,19 @@ script = ExtResource("1_5k58b")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("2_coq7m")
+texture = ExtResource("2_c6wk1")
 
 [node name="Dying" type="Sprite2D" parent="."]
 visible = false
 modulate = Color(1, 1, 1, 0.423529)
 texture_filter = 1
-texture = ExtResource("2_coq7m")
+texture = ExtResource("2_c6wk1")
 
 [node name="NoPlace" type="Sprite2D" parent="."]
 visible = false
 modulate = Color(0.552941, 0, 0, 1)
 texture_filter = 1
-texture = ExtResource("2_coq7m")
+texture = ExtResource("2_c6wk1")
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(16, 0)

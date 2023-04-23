@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://oj6y6s43nkgd" path="res://boss.tscn" id="5_m76ku"]
 [ext_resource type="PackedScene" uid="uid://b5kysgfllcfww" path="res://shop.tscn" id="6_486qw"]
 [ext_resource type="Theme" uid="uid://c54kwsqechm6o" path="res://new_theme.tres" id="7_qusyj"]
-[ext_resource type="AudioStream" uid="uid://br18n870tjfhb" path="res://GWJ56.wav" id="8_l2tlp"]
+[ext_resource type="AudioStream" uid="uid://cxrv60gsamwi2" path="res://GWJ56.wav" id="8_l2tlp"]
 
 [sub_resource type="Curve2D" id="Curve2D_okigp"]
 _data = {
@@ -124,6 +124,7 @@ text = "Tip: Use W & D or arrowkeys to rotate
 walls when placing!"
 horizontal_alignment = 1
 
+[connection signal="bullet" from="Cannon" to="." method="_on_cannon_bullet"]
 [connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="WaveTimer" to="." method="_on_wave_timer_timeout"]
 [connection signal="cannonBought" from="Shop" to="." method="_on_shop_cannon_bought"]

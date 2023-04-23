@@ -4,6 +4,7 @@ var health = 200
 var velocity_dir = Vector2.RIGHT
 var speed = 30
 signal died(material, pos)
+signal hit
 
 func _physics_process(delta):
 	velocity = velocity_dir * speed
@@ -22,4 +23,5 @@ func _on_boss_area_area_entered(area):
 	if area.name == 'Bunker':
 		queue_free()
 	elif 'Bullet' in area.name:
+		emit_signal('hit')
 		health -= 1

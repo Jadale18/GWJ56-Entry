@@ -1,41 +1,31 @@
-[gd_scene load_steps=7 format=3 uid="uid://bkndxismsc4x1"]
+[gd_scene load_steps=6 format=3 uid="uid://bkndxismsc4x1"]
 
 [ext_resource type="Texture2D" uid="uid://neqms0ho6ntj" path="res://Bullet.png" id="1_w8j0j"]
 [ext_resource type="Script" path="res://GPUParticles2D.gd" id="2_5i8av"]
 [ext_resource type="AudioStream" uid="uid://dsixi8ixqtwjv" path="res://pop1.ogg" id="3_db78y"]
 
-[sub_resource type="Gradient" id="Gradient_wglx1"]
-offsets = PackedFloat32Array(0, 0.554475, 1)
-colors = PackedColorArray(1, 1, 1, 1, 0.772549, 0.772549, 0.772549, 1, 0, 0, 0, 0)
+[sub_resource type="Gradient" id="Gradient_6v4m6"]
+offsets = PackedFloat32Array(0, 0.543046, 0.562914, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.662252, 0.662252, 0.662252, 1, 0.681954, 0.681954, 0.681954, 1, 0, 0, 0, 0)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_ikc7s"]
-gradient = SubResource("Gradient_wglx1")
+[sub_resource type="Curve" id="Curve_ohkye"]
+min_value = -1.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.994506, -0.0181818), 0.0, 0.0, 0, 0]
+point_count = 2
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_b8323"]
-lifetime_randomness = 0.18
-particle_flag_disable_z = true
-direction = Vector3(2.08165e-12, -1, 2.08165e-12)
-spread = 90.0
-gravity = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
-initial_velocity_min = 72.44
-initial_velocity_max = 232.69
-orbit_velocity_min = 0.0
-orbit_velocity_max = 2.08167e-14
-linear_accel_min = -3.12
-scale_min = 0.1
-scale_max = 0.1
-color = Color(0.890196, 0.890196, 0.890196, 1)
-color_ramp = SubResource("GradientTexture1D_ikc7s")
-
-[node name="DeathParticles" type="GPUParticles2D"]
+[node name="DeathParticles" type="CPUParticles2D"]
 emitting = false
 amount = 100
-process_material = SubResource("ParticleProcessMaterial_b8323")
-texture = ExtResource("1_w8j0j")
 lifetime = 0.3
 one_shot = true
 explosiveness = 0.82
-trail_lifetime = 0.2
+texture = ExtResource("1_w8j0j")
+direction = Vector2(0, -1)
+gravity = Vector2(0, 0)
+initial_velocity_min = 63.66
+initial_velocity_max = 353.54
+color_ramp = SubResource("Gradient_6v4m6")
+hue_variation_curve = SubResource("Curve_ohkye")
 script = ExtResource("2_5i8av")
 
 [node name="Timer" type="Timer" parent="."]

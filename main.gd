@@ -24,6 +24,7 @@ func _ready():
 	$WaveTimer.start()
 	$AnimationPlayer.play("Waves")
 	$AudioStreamPlayer.volume_db = 0
+	$AnimationPlayer2/Tips.text = "Tip: Use W & D or arrowkeys to rotate \nwalls when placing!"
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -108,8 +109,10 @@ func _on_shop_cont():
 		tip = false
 
 func _on_shop_cannon_bought():
+	Stats.cannonsbought += 1 
 	newcannon = cannonPath.instantiate()
 	add_child(newcannon)
+	newcannon.connect('bullet', _on_cannon_bullet)
 	newcannon.position = get_global_mouse_position()
 	newcannon.og = false	
 	placing_cannon = true
@@ -132,6 +135,7 @@ func placing():
 
 
 func _on_shop_wall_bought():
+	Stats.wallsbought += 1
 	newwall = wallPath.instantiate()
 	add_child(newwall)
 	newwall.position = get_global_mouse_position()
@@ -162,3 +166,7 @@ func spawn_boss():
 
 func _on_audio_stream_player_finished():
 	$AudioStreamPlayer.play(2.0)
+
+
+func _on_cannon_bullet():
+	Stats.bullets += 1
